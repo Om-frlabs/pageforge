@@ -1,70 +1,163 @@
-# Getting Started with Create React App
+# ⬡ PageForge — AI Landing Page Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Describe your product in plain text. Get a complete, production-ready landing page in seconds.
 
-## Available Scripts
+**Live Demo → [om-frlabs.github.io/pageforge](https://om-frlabs.github.io/pageforge)**
 
-In the project directory, you can run:
+![PageForge Preview](https://img.shields.io/badge/status-live-4ade80?style=flat-square&labelColor=0a0a0a)
+![React](https://img.shields.io/badge/React-18-61dafb?style=flat-square&labelColor=0a0a0a)
+![Multi-Provider](https://img.shields.io/badge/AI-Gemini%20%7C%20Claude%20%7C%20OpenAI%20%7C%20Grok-e8ff47?style=flat-square&labelColor=0a0a0a)
+![License](https://img.shields.io/badge/license-MIT-a78bfa?style=flat-square&labelColor=0a0a0a)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## What is PageForge?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+PageForge is an AI-powered SaaS landing page generator. You describe your product — the AI writes the headline, features, testimonials, pricing, and footer — and renders a complete, responsive HTML page with live preview instantly.
 
-### `npm test`
+Built as a resume project to demonstrate **React**, **multi-provider LLM integration**, **prompt engineering**, and **production UI/UX** skills.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Feature | Details |
+|---|---|
+| 🤖 **4 AI Providers** | Gemini, Claude, OpenAI GPT-4o, Grok — switch any time |
+| ⚡ **Full Page Generation** | Nav, Hero, Features, Testimonials, Pricing, CTA, Footer |
+| 🔁 **Per-Section Regeneration** | Redo any single section without rebuilding the whole page |
+| 👁 **Live Preview** | Rendered in a sandboxed iframe, updates instantly |
+| 📱 **Mobile / Desktop Toggle** | Preview in iPhone frame (390×844) or full desktop |
+| ↔ **Resizable Panel** | Drag the divider to adjust panel width (220px–520px) |
+| 🎨 **6 Design Tones** | Modern SaaS, Bold & Punchy, Minimal, Playful, Enterprise, Dark Luxury |
+| 🌈 **6 Color Palettes** | Auto, Ocean, Forest, Ember, Violet, Mono |
+| 🕘 **Generation History** | Last 3 generations stored in-memory with one-click restore |
+| ↓ **Export .html** | Download the full standalone HTML file |
+| ⎘ **Copy to Clipboard** | Copy raw HTML instantly |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech Stack
 
-### `npm run eject`
+- **React 18** — functional components, hooks
+- **Gemini API** (`gemini-2.0-flash`) — Google AI
+- **Claude API** (`claude-opus-4-5`) — Anthropic (via local proxy)
+- **OpenAI API** (`gpt-4o`) — OpenAI
+- **Grok API** (`grok-3`) — xAI
+- **Tailwind CSS CDN** — injected into generated pages
+- **GitHub Actions** — CI/CD auto-deploy to GitHub Pages
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Run Locally
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+# 1. Clone the repo
+git clone https://github.com/Om-frlabs/pageforge.git
+cd pageforge
 
-## Learn More
+# 2. Install dependencies
+npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# 3. Start the React app
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+App runs at `http://localhost:3000`
 
-### Code Splitting
+### Enable Claude (Local Only)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Claude requires a local proxy to bypass CORS. Open a second terminal:
 
-### Analyzing the Bundle Size
+```bash
+node proxy.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This starts a proxy at `http://localhost:3001` that forwards requests to `api.anthropic.com`.
 
-### Making a Progressive Web App
+> **Note:** Gemini, OpenAI, and Grok work directly in the browser without any proxy.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+pageforge/
+│
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # Auto-deploy to GitHub Pages on push to main
+│
+├── public/
+│   └── index.html
+│
+├── src/
+│   └── App.js                  # Full PageForge app (single-file React component)
+│
+├── proxy.js                    # Express proxy for Claude API (local use only)
+├── package.json
+└── .gitignore
+```
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## API Keys
 
-### `npm run build` fails to minify
+Get free/paid keys from each provider:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Provider | Key Format | Get Key |
+|---|---|---|
+| Gemini | `AIzaSy…` | [aistudio.google.com](https://aistudio.google.com) |
+| Claude | `sk-ant-…` | [console.anthropic.com](https://console.anthropic.com) |
+| OpenAI | `sk-…` | [platform.openai.com](https://platform.openai.com) |
+| Grok | `xai-…` | [console.x.ai](https://console.x.ai) |
+
+> ⚠️ Keys are entered in the UI and never stored anywhere — no backend, no database.
+
+---
+
+## Hosted vs Local
+
+| Feature | GitHub Pages | Local (`npm start`) |
+|---|---|---|
+| Gemini | ✅ | ✅ |
+| OpenAI | ✅ | ✅ |
+| Grok | ✅ | ✅ |
+| Claude | 🔒 Disabled | ✅ (needs `node proxy.js`) |
+
+Claude is disabled on GitHub Pages because it requires a Node.js proxy server which static hosts don't support.
+
+---
+
+## Deploy
+
+Push to `main` and GitHub Actions handles everything:
+
+```bash
+git add .
+git commit -m "your message"
+git push
+```
+
+Live at: **[om-frlabs.github.io/pageforge](https://om-frlabs.github.io/pageforge)**
+
+---
+
+## Screenshots
+
+> _Coming soon — add a screenshot of the app here_
+
+---
+
+## Author
+
+**Om** — Founder, [Fr Labs](https://github.com/Om-frlabs)  
+Built in Kanpur, India 🇮🇳
+
+---
+
+## License
+
+MIT — free to use, fork, and build on.
