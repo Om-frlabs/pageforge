@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/pageforge/static/css/main.e6c13ad2.css",
+    "main.js": "/pageforge/static/js/main.d2616818.js",
+    "static/js/488.4ce0e990.chunk.js": "/pageforge/static/js/488.4ce0e990.chunk.js",
+    "index.html": "/pageforge/index.html",
+    "main.e6c13ad2.css.map": "/pageforge/static/css/main.e6c13ad2.css.map",
+    "main.d2616818.js.map": "/pageforge/static/js/main.d2616818.js.map",
+    "488.4ce0e990.chunk.js.map": "/pageforge/static/js/488.4ce0e990.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.d2616818.js"
+  ]
+}
